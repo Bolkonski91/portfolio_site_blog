@@ -1,15 +1,15 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 auth = Blueprint('auth', __name__)
 
-auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/login')
 def login():
-    pass
+    return render_template('login.html', text='texting')
 
-auth.route('/logout', methods=['GET', 'POST'])
+@auth.route('/logout', methods=['GET', 'POST'])
 def logout():
     pass
 
-auth.route('/sign-up', methods=['GET', 'POST'])
+@auth.route('/sign_up')
 def sign_up():
-    pass
+    return render_template('sign_up.html')

@@ -1,0 +1,57 @@
+.signup-container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.signup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    border-color: rgba(0, 0, 0, 0.7);
+    box-shadow: none;
+    outline: none;
+}
+
+.btn-custom {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    background: rgba(0, 0, 0, 0.7); /* ista boja kao navbar */
+    color: #fff;
+    border: none;
+}
+
+.btn-custom:hover {
+    background: rgba(0, 0, 0, 0.8); /* minimalna razlika na hover */
+    color: #fff;
+}
+
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom:focus:active {
+    background: rgba(0, 0, 0, 0.95) !important; /* ostaje crno */
+    color: #fff !important;
+    box-shadow: none !important;               /* uklanja plavi glow */
+    outline: none !important;                  /* uklanja plavi outline */
+}
+

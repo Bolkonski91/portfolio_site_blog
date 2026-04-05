@@ -18,3 +18,11 @@ class User(db.Model, UserMixin):
     lastName = db.Column(db.String(120), nullable=False)
     blogs = db.relationship('Blog', backref='author', lazy='dynamic')
 
+class ContactMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    first_name = db.Column(db.String(120))
+    last_name = db.Column(db.String(120))
+    title = db.Column(db.String(120))
+    message = db.Column(db.String(100000))
+    date_sent = db.Column(db.DateTime(timezone=True), nullable=False, server_default=func.now())

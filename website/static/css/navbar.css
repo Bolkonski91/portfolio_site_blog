@@ -1,5 +1,5 @@
 .custom-navbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(51, 51, 51);
     backdrop-filter: blur(10px);
     padding: 10px 20px;
 }
@@ -12,7 +12,7 @@
 }
 
 .navbar-brand:hover {
-    color: #00d4ff !important;
+    color: #f1c40f !important;
 }
 
 /* NAV LINKS */
@@ -23,12 +23,16 @@
     transition: 0.3s;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255);
+}
+
 .nav-link::after {
     content: "";
     position: absolute;
     width: 0%;
     height: 2px;
-    background: #00d4ff;
+    background: #f1c40f;
     left: 0;
     bottom: 0;
     transition: 0.3s;
@@ -41,7 +45,7 @@
 /* ACTIVE LINK */
 
 .active-link {
-    color: #00d4ff !important;
+    color: #f1c40f !important;
 }
 
 .active-link::after {

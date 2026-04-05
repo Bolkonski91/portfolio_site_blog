@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 {% block title %} Contact Me {% endblock%}
 {% block content %}
-    <h1>This is the Contact Me Page</h1>
+<div class="contact-container">
+    <div class="contact-card">
+        <h3 class="contact-title">Contact me</h3>
+        <p>If you have any question or if you want to collaborate with me, be freedom to contact me and fill out this form bellow. </p>
+        <p>If you want to write articles on my blog, click on sign-in button on navigation panel and fill out form.</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email (Required field))">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="first_name" placeholder="First Name">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="last_name" placeholder="Last Name">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="title" placeholder="Title of message (Required field)">
+            </div>
+
+            <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Enter your message (Required field)"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-custom">
+                Sent message
+            </button>
+        </form>
+    </div>
+</div>
 {% endblock %}

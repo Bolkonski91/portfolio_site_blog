@@ -1,11 +1,11 @@
-.signup-container {
+.signup-container, .contact-container {
     min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.signup-card {
+.signup-card, .contact-card {
     width: 100%;
     max-width: 500px;
     padding: 30px;
@@ -14,7 +14,7 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.signup-title {
+.signup-title, .contact-title {
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;

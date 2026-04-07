@@ -1,7 +1,33 @@
 body {
     background-color: #f1c40f;
+    padding-top: 63px;
 }
 
 .container {
     color: #000;
 }
+
+.admin-panel {
+  background-color: rgb(51, 51, 51) !important;
+}
+
+.btn-warning {
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: bold;
+}
+
+.card {
+  border-radius: 8px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .admin-panel {
+    min-height: 100vh;
+  }
+}
+

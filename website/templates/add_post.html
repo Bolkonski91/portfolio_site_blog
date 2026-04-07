@@ -1,0 +1,131 @@
+{% extends 'admin_panel_base.html' %}
+
+{% block admin_content %}
+<h2 class="mb-4">Kreiraj novi post na blogu</h2>
+
+<form method="POST" action="{{ url_for('views.add_post') }}" class="bg-warning p-4 rounded">
+
+    <div class="mb-4">
+        <label for="title" class="form-label fw-bold">Unesi naslov posta</label>
+        <input
+            type="text"
+            class="form-control form-control-lg"
+            id="title"
+            name="title"
+            placeholder="Naslov posta"
+            required
+        >
+    </div>
+
+    <div class="mb-4">
+        <label for="content" class="form-label fw-bold">Unesi tekst posta</label>
+
+        <div id="toolbar" class="mb-2">
+            <span class="ql-formats">
+                <select class="ql-font">
+                    <option selected>Aleo</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                    <option value="roboto">Roboto</option>
+                </select>
+                <select class="ql-size">
+                    <option value="small"></option>
+                    <option selected>Normal</option>
+                    <option value="large"></option>
+                    <option value="huge"></option>
+                </select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-bold" title="Boldiraj"></button>
+                <button class="ql-italic" title="Kurziv"></button>
+                <button class="ql-underline" title="Podcrta"></button>
+                <button class="ql-strike" title="Precrtaj"></button>
+            </span>
+            <span class="ql-formats">
+                <select class="ql-color" title="Boja teksta"></select>
+                <select class="ql-background" title="Boja pozadine"></select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-list" value="ordered" title="Numerisana lista"></button>
+                <button class="ql-list" value="bullet" title="Redosled sa tačkama"></button>
+                <button class="ql-indent" value="-1" title="Smanji uvlaku"></button>
+                <button class="ql-indent" value="+1" title="Povećaj uvlaku"></button>
+            </span>
+            <span class="ql-formats">
+                <select class="ql-align" title="Poravnanje"></select>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-link" title="Dodaj link"></button>
+                <button class="ql-image" title="Dodaj sliku"></button>
+                <button class="ql-code-block" title="Kod blok"></button>
+            </span>
+            <span class="ql-formats">
+                <button class="ql-clean" title="Obriši formatiranje"></button>
+            </span>
+        </div>
+
+        <!-- Editor -->
+        <div id="editor" style="height: 400px; background-color: white; border: 1px solid #ccc;"></div>
+        <input type="hidden" id="content" name="content">
+    </div>
+
+    <div class="mb-4">
+        <label for="keywords" class="form-label fw-bold">Unesi ključne reči za post</label>
+        <input
+            type="text"
+            class="form-control form-control-lg"
+            id="keywords"
+            name="keywords"
+            placeholder="Ključne reči odvojene zarezima"
+        >
+    </div>
+
+    <!-- Dugme za slanje -->
+    <div class="text-center">
+        <button type="submit" class="btn btn-dark btn-lg fw-bold px-5">Dodaj post</button>
+    </div>
+</form>
+
+<!-- Quill Library CSS i JS -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<script>
+    // Inicijalizuj Quill editor
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: '#toolbar'
+        },
+        placeholder: 'Upiši sadržaj posta ovde...'
+    });
+
+    // Kada se forma šalje, postavi HTML iz editora u skriveni input
+    document.querySelector('form').onsubmit = function() {
+        document.getElementById('content').value = quill.root.innerHTML;
+    };
+</script>
+
+<style>
+    #toolbar {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .ql-toolbar {
+        border: none !important;
+        background-color: transparent !important;
+    }
+
+    .ql-container {
+        border: none !important;
+        font-family: inherit;
+        font-size: 16px;
+    }
+
+    #editor {
+        border-radius: 0 0 4px 4px;
+    }
+</style>
+{% endblock %}

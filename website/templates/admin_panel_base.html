@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Admin Page {% endblock%}
+{% block content %}
+<div class="container-fluid p-0">
+    <div class="row g-0">
+        <div class="col-12 col-md-2 admin-panel text-light p-3">
+            <h4 class="mb-4">Admin Panel</h4>
+            <button class="btn btn-warning w-100 mb-3" onclick="window.location.href='/admin/add_post'">Add new post</button>
+            <button class="btn btn-warning w-100 mb-3">Preview publish posts</button>
+            <button class="btn btn-warning w-100 mb-3" onclick="window.location.href='/admin/messages'">Preview messages</button>
+        </div>
+        <!-- CONTENT -->
+        <div class="col-12 col-md-10 p-4">
+            {% block admin_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
